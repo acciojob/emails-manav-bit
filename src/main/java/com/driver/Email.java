@@ -25,10 +25,10 @@ public class Email {
         // 3. It contains at least one lowercase letter
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
-        String oldpassword=getPassword();
 
 
-        if (!oldpassword.equals(oldPassword)) {
+
+        if (!password.equals(oldPassword)) {
 //            System.out.println("Old password is incorrect.");
             return;
         }

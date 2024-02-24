@@ -25,14 +25,10 @@ calendar.add(meeting);
     }
 
     public int findMaxMeetings(){
-        // find the maximum number of meetings you can attend
-        // 1. At a particular time, you can be present in at most one meeting
-        // 2. If you want to attend a meeting, you must join it at its start time and leave at end time.
-        // Example: If a meeting ends at 10:00 am, you cannot attend another meeting starting at 10:00 am;
+
         ArrayList<Meeting> m = new ArrayList<>();
         LocalTime time_limit ;
-        // Sorting of meeting according to
-        // their finish time.
+
 
         // sorting using compartor class and without (compartor or comparable class)
         //  mycomparator mc = new mycomparator();
@@ -63,8 +59,9 @@ calendar.add(meeting);
 
         return m.size();
     }
-    class mycomparator implements Comparator<Meeting>{
-        @Override public int compare(Meeting m1,Meeting m2){
+    static class mycomparator implements Comparator<Meeting>{
+        @Override
+        public int compare(Meeting m1,Meeting m2){
             if(m1.getStartTime().compareTo(m2.getEndTime())<0){
                 return -1;
             }
