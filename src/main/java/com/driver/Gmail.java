@@ -10,8 +10,8 @@ public class Gmail extends Email {
     //Trash: Stores mails. Each mail has date (Date), sender (String), message (String)
     ArrayList<Mail> Inbox=new ArrayList<>();
     ArrayList<Mail> Trash=new ArrayList<>();
-    private int inboxSize=0;
-   private int trashSize=0;
+
+
 
     public Gmail(String emailId, int inboxCapacity) {
 
@@ -28,14 +28,14 @@ this.inboxCapacity=inboxCapacity;
         // 2. The mails are received in non-decreasing order. This means that the date of a new mail is greater than equal to the dates of mails received already.
 
 
-        if(inboxSize==inboxCapacity){
+        if(getInboxSize()==inboxCapacity){
 Mail oldest=Inbox.remove(0);
 Trash.add(oldest);
 
         }
         Inbox.add(new Mail(message,date,sender));
 
-inboxSize++;
+
     }
 
     public void deleteMail(String message){
@@ -46,8 +46,7 @@ for(int i=0;i<Inbox.size();i++){
     if(mail.message.equals(message)){
         Trash.add(mail);
         Inbox.remove(i);
-        inboxSize--;
-        trashSize--;
+
         return;
     }
 }
@@ -56,7 +55,7 @@ for(int i=0;i<Inbox.size();i++){
     public String findLatestMessage(){
         // If the inbox is empty, return null
         // Else, return the message of the latest mail present in the inbox
-if(inboxSize==0){
+if(getInboxSize()==0){
     return null;
 }
 else{
@@ -67,7 +66,7 @@ return Inbox.get(Inbox.size()-1).message;
     public String findOldestMessage(){
         // If the inbox is empty, return null
         // Else, return the message of the oldest mail present in the inbox
-if(inboxSize==0){
+if(getInboxSize()==0){
     return null;
 }
 return Inbox.get(0).message;
